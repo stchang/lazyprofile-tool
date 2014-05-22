@@ -1,12 +1,11 @@
-#lang s-exp "lazy-profile.rkt"
-;#lang racket
+#lang s-exp "../lazy-profile.rkt"
 
-(define/prim (map f lst)
+(define (map f lst)
   (if (null? lst)
       null
       (cons (f (car lst)) (map f (cdr lst)))))
 
-(define/prim (rng n m)
+(define (rng n m)
   (if (>= n m)
       (list m)
       (cons n (rng (add1 n) m))))

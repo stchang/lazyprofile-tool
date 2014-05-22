@@ -10,23 +10,13 @@
       (list m)
       (cons n (rng (add1 n) m))))
 
-(define filter-counter 0)
 (define (filter p? lst)
   (if (null? lst)
       null
       (let ([x (car lst)])
         (if (p? x)
-;            (begin
-;              (printf "~a ***** KEEP *****\n" filter-counter)
-;              (set! filter-counter (add1 filter-counter))
-              (cons x (filter p? (cdr lst)))
-;              )
-;            (begin
-;              (printf "~a filter out\n" filter-counter)
-;              (set! filter-counter (add1 filter-counter))
-              (filter p? (cdr lst))
-;              )
-        ))))
+            (cons x (filter p? (cdr lst)))
+            (filter p? (cdr lst))))))
 
 (define (foldl f acc lst)
   (if (null? lst)
@@ -48,7 +38,7 @@
       lst2
       (cons (car lst1) (append (cdr lst1) lst2))))
 
-(define/prim (tails lst)
+(define (tails lst)
   (if (null? lst)
       (list null)
       (cons lst (tails (cdr lst)))))
@@ -79,8 +69,11 @@
           (λ (r qss-so-far)
             (foldr
              (λ (qs new-qss)
-               (append (map (λ (c) (cons (cons r c) qs)) (rng 1 n))
-                       new-qss))
+               (append 
+                (map 
+                 (λ (c) (cons (cons r c) qs)) 
+                 (rng 1 n))
+                new-qss))
              null qss-so-far))]
          [all-possible-solutions (foldl process-row (list null) (rng 1 n))])
     (car (filter valid? all-possible-solutions))))

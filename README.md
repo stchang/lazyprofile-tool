@@ -47,3 +47,9 @@ profiler's suggestions.
 * `nqueens-streams.rkt`: nqueens example with lists converted to streams -- slower
 * `nqueens-streams+lazy-fold.rkt`: nqueens with streams + lazy foldr -- faster
 * `nqueens-using-profiler-results.rkt`: nqueens with only lazy filter and fold -- fastest
+
+### Okasaki's purely functional data structures
+
+### Parsec
+
+### Realm of Racket

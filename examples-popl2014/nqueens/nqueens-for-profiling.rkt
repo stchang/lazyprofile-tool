@@ -1,4 +1,4 @@
-#lang s-exp "../lazy-profile.rkt"
+#lang s-exp "../../lazy-profile.rkt"
 
 (define (map f lst)
   (if (null? lst)

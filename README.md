@@ -30,19 +30,20 @@ E.g., profiling `nqueens` for `n=5` produces the same laziness suggestions as
 
 The profiler also employs some heuristics to improve performance. Specifically,
 it only instruments arguments to data constructors and user-defined functions,
-and skips instrumenting arguments to primtives, literals, and
+and skips instrumenting arguments to primitives, literals, and
 identifiers. Additionally, a function defined via a `define/prim` form is
-treated as a primtive function. NOTE: the values produced by non-instrumented
+treated as a primitive function. NOTE: the values produced by non-instrumented
 expressions are not counted when computing the laziness potential weight value,
 so there may be some tradeoff between performance and accuracy of the
 profiler's suggestions.
 
 
-# Some descriptions for example files:
+## Descriptions for examples:
 
-`nqueens-for-profiling.rkt`: get profiling results for nqueens
+### nqueens
 
-`nqueens-eager.rkt`: nqueens example with no laziness -- slow
-`nqueens-streams.rkt`: nqueens example with lists converted to streams -- slower
-`nqueens-streams+lazy-fold.rkt`: nqueens with streams + lazy foldr -- faster
-`nqueens-using-profiler-results.rkt`: nqueens with only lazy filter and fold -- fastest
+* `nqueens-for-profiling.rkt`: get profiling results for nqueens
+* `nqueens-eager.rkt`: nqueens example with no laziness -- slow
+* `nqueens-streams.rkt`: nqueens example with lists converted to streams -- slower
+* `nqueens-streams+lazy-fold.rkt`: nqueens with streams + lazy foldr -- faster
+* `nqueens-using-profiler-results.rkt`: nqueens with only lazy filter and fold -- fastest
